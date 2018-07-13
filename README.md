@@ -7,3 +7,5 @@ Libraries used include:
 Tkinter, PIL, pyqrcode, and RPi.GPIO, pypng  
 
 Setup with RC522 card reader can be found at https://pimylifeup.com/raspberry-pi-rfid-rc522/
+
+This program also uses vlc player. Type "sudo apt-get install vlc" into terminal to install in raspberry pi.
