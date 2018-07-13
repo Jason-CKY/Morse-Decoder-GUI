@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
+
 import subprocess
 
 class CardReader:
-    python3_command = '/home/pi/Desktop/Revelations/python2Scanner.py'
+    python3_command = '/home/pi/Morse-Decoder-GUI/python2Scanner.py'
 
     def getClueNum(self):
         process = subprocess.Popen(self.python3_command, stdout=subprocess.PIPE)

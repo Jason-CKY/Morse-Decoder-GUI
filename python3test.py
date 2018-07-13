@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
+
 import subprocess
 
-python3_command = "/home/pi/Desktop/Revelations/python2Scanner.py"
+python3_command = '/home/pi/Morse-Decoder-GUI/python2Scanner.py'
 
 while True:
     process = subprocess.Popen(python3_command, stdout=subprocess.PIPE)

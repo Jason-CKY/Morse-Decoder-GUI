@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #Python program to implement Morse Code Translator
 class MorseCode:
     # Dictionary representing the morse code chart

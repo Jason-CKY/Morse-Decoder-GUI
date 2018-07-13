@@ -1,3 +1,4 @@
+#!/usr/bin/env python2
 # Code by Simon Monk https://github.com/simonmonk/
 
 import MFRC522

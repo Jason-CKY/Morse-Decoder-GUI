@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 # Modifications made by Simon Monk https://github.com/simonmonk/
 # Modified from: https://github.com/mxgxw/MFRC522-python/blob/master/MFRC522.py
 # Trace commented out and the Read and Write methods modified to return values.
