@@ -28,12 +28,9 @@ class GameDisplay:
     bgMusic = 'res/Basement Floor.mpeg'
     bgImage = 'res/Background.jpg'
     dud1 = "res/Troll Song.wav"
-    dud2 = "res/Music of Memes.wav"
-    dud3 = "res/Evolution_of_Dance.wav"
-    dud4 = "res/My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.wav"
-    dud5 = "res/Rick Astley - Never Gonna Give You Up.wav"
-    dud6 = "res/Charlie Schmidts Keyboard Cat! - THE ORIGINAL!.wav"
-    dud7 = "res/X - Men.wav"
+    dud2 = "res/My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.wav"
+    dud3 = "res/Rick Astley - Never Gonna Give You Up.wav"
+    dud4 = "res/X - Men.wav"
 
     code_TextBox_Intro = "Welcome to the Morse Code user interface. Fill this textBox with morse code and press " \
                          "the decode button to decode the morse code into words in the textbox below." \
@@ -192,12 +189,6 @@ class GameDisplay:
             self.sound.playSound(self.dud3)
         elif (clue[0:4] == 'Dud4'):
             self.sound.playSound(self.dud4)
-        elif (clue[0:4] == 'Dud5'):
-            self.sound.playSound(self.dud5)
-        elif (clue[0:4] == 'Dud6'):
-            self.sound.playSound(self.dud6)
-        elif (clue[0:4] == 'Dud7'):
-            self.sound.playSound(self.dud7)
         elif(clue[0:8] == 'Location'):
             self.next_Location_Hint.show()
             print("Displaying the next location in QR code")
