@@ -26,7 +26,7 @@ class Sound:
 
     def playSound(self, filename):
         #   threading.Thread(target=self.loadSoundOnce, args=(filename, )).start()
-        subprocess.Popen(['vlc', '/home/pi/Morse-Decoder-GUI' + str(filename)])
+        subprocess.Popen(['vlc', '/home/pi/Morse-Decoder-GUI/' + str(filename)])
 
     def stopSound(self, filename):
         pygame.mixer.pause()
