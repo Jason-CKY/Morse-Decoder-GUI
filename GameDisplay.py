@@ -67,7 +67,7 @@ class GameDisplay:
         #   Creating labels
         self.encodeLabel = Label(self.frame, text="Encoded Morse Code:", bg="#212733", fg="white", font="none 12 bold")
         self.decodeLabel = Label(self.frame, text="\nDecoded String:", bg="#212733", fg="white", font="none 12 bold")
-        self.exitLabel = Label(self.frame, text="\nclick to exit:", bg="#212733", fg="white", font="none 12 bold")
+        self.submitLabel = Label(self.frame, text="\nclick to submit decoded message:", bg="#212733", fg="white", font="none 12 bold")
 
         #   Creating text boxes
         self.codeTextBox = Text(self.frame, width=75, height=6, wrap=WORD, background="white")
@@ -80,7 +80,7 @@ class GameDisplay:
         self.encodeBtn = Button(self.master, text="ENCODE", width=6, command=self.encode)
         self.clearBtn = Button(self.subFrame2, text="Clear", width=6, command=self.clear_text)
         self.playBtn = Button(self.master, text="Play", width=6, command=self.playCode)
-        self.exitBtn = Button(self.frame, text="Exit", width=6, command=self.close_window)
+        self.submitBtn = Button(self.frame, text="Submit", width=6, command=self.close_window)
         self.scanBtn = Button(self.subFrame2, text='Click to scan', command=self.create_window)
 
         #   Arranging the layout
@@ -101,14 +101,14 @@ class GameDisplay:
         self.clearBtn.pack(side=LEFT)
         self.decodeLabel.pack()
         self.stringTextBox.pack()
-        self.exitLabel.pack()
-        self.exitBtn.pack()
+        self.submitLabel.pack()
+        self.submitBtn.pack()
 
         self.stringTextBox.insert(1.0, self.string_TextBox_Intro)
         self.codeTextBox.insert(1.0, self.code_TextBox_Intro)
-        
+
         #   start off with background music on endless loop
-        self.sound.playEndlessLoop(self.bgMusic)
+        #   self.sound.playEndlessLoop(self.bgMusic)
         print("playing bg")
 
     def resize_img(self, event):
@@ -131,21 +131,18 @@ class GameDisplay:
     def decode(self):
         try:
             code = self.codeTextBox.get(1.0, 'end-1c')
-            decodedString = self.morser.decrypt(code)
+            self.decodedString = self.morser.decrypt(code)
         except ValueError:
-            decodedString = "Invalid morse code. Input '-' for long beep, and '.' for short beep. \n" \
+            self.decodedString = "Invalid morse code. Input '-' for long beep, and '.' for short beep. \n" \
                             "Add a single space between each character and 2 spaces between each word\n" \
                             "DO NOT END WITH >=2 SPACES"
         self.stringTextBox.delete(1.0, END)
-        self.stringTextBox.insert(1.0, decodedString)
-
-        if(decodedString == 'HE IS NO LONGER THE SAME'):
-            self.dialogue.create_first_dialog()
+        self.stringTextBox.insert(1.0, self.decodedString)
 
     def encode(self):
         try:
-            decodedString = self.stringTextBox.get(1.0, 'end-1c')
-            code = self.morser.encrypt(decodedString)[:-1]
+            self.decodedString = self.stringTextBox.get(1.0, 'end-1c')
+            code = self.morser.encrypt(self.decodedString)[:-1]
         except KeyError:
             code = "Invalid string. Do not include special symbols like '@#$%^&*' "
         self.codeTextBox.delete(1.0, END)
@@ -189,16 +186,15 @@ class GameDisplay:
             self.sound.playSound(self.dud3)
         elif (clue[0:4] == 'Dud4'):
             self.sound.playSound(self.dud4)
-        elif(clue[0:8] == 'Location'):
-            self.next_Location_Hint.show()
-            print("Displaying the next location in QR code")
 
     def create_info(self):
         tkinter.messagebox.showinfo('SCANNING MODE', 'You may now place the card on the scanner')
 
     def close_window(self):
-        self.frame.destroy()
-        exit()
+        self.decodedString = self.stringTextBox.get(1.0, 'end-1c').upper()
+        if (self.decodedString == 'HE IS NO LONGER THE SAME'):
+            self.next_Location_Hint.show()
+            self.dialogue.create_first_dialog()
 
 
 if __name__ == '__main__':

@@ -9,7 +9,7 @@ class Dialogue:
         self.win.wm_title("Congratulations!")
         background = Label(self.win, bg='black')
         background.pack(fill=BOTH, expand=True)
-        Label(background, text="You\'ve decoded the morse code! The next location is hidden in a special location card, try scanning it and see where it takes you."
+        Label(background, text="Successful decryption. Good job agents."
               , font='None 24 bold', bg='black', fg='white').pack()
         subFrame = Frame(background)
         subFrame.pack(anchor=CENTER)
