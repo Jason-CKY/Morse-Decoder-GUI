@@ -14,7 +14,7 @@ class GameDisplay:
     sound = Sound()
     scanner = CardReader()
     dialogue = Dialogue()
-    next_Location_Hint = pyqrcode.create('http://maps.ntu.edu.sg/m?q=Tutorial%20Room%20%2B%2024%20-%20LHN&fs=m')
+    next_Location_Hint = pyqrcode.create('http://maps.ntu.edu.sg/m?q=Lee%20Kong%20Chian%20Lecture%20Theatre&fs=m')
     next_Location_Hint.png('code.png', scale=6, module_color=[0, 0, 0, 128], background=[0xff, 0xff, 0xcc])
     clue1 = 'res/clue1.wav'
     clue2 = 'res/clue2.wav'
@@ -108,7 +108,7 @@ class GameDisplay:
         self.codeTextBox.insert(1.0, self.code_TextBox_Intro)
 
         #   start off with background music on endless loop
-        #   self.sound.playEndlessLoop(self.bgMusic)
+        self.sound.playEndlessLoop(self.bgMusic)
         print("playing bg")
 
     def resize_img(self, event):
