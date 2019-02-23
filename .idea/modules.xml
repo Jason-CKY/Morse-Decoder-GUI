@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../Data Science Stuff/.idea/Data Science Stuff.iml" filepath="$PROJECT_DIR$/../../../Data Science Stuff/.idea/Data Science Stuff.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Revelations.iml" filepath="$PROJECT_DIR$/.idea/Revelations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Shoppee_Data_Science/.idea/Shoppee_Data_Science.iml" filepath="$PROJECT_DIR$/../Shoppee_Data_Science/.idea/Shoppee_Data_Science.iml" />
     </modules>
   </component>
 </project>
